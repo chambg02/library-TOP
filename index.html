@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="bodyContainer">
+    <div class="bodyContainer" id="bodyContainer">
 
         <div class="sidebar">
             <div class="logoContainer">MY LIBRARY</div>
@@ -25,17 +25,15 @@
         </div>
 
         <div class="header">
-            <div class="welcomeContainer">Welcome</div>
+            <div class="welcomeContainer">Add a book to your collection</div>
             <div class="addNewContainer">
-                <div class="titleDiv">Title: <input class="titleInput" type="text"></div>
-                <div class="authorDiv">Author: <input class="authorInput" type="text"></div>
-                <div class="pagesDiv"># of Pages: <input class="pagesInput" type="text"></div>
-                <div class="statusDiv">Read Status: </div>
-                <button class="addButton">Add New Book</button>
+
+                <button id="addButton" onclick="addBookButton()">Book</button>
             </div>
+
         </div>
 
-        <div class="bookdisplay">
+        <div class="bookdisplay" id="bookdisplay">
             <div class = "card">
                 <p class = "bookTitle">Book Title</p>
                 <p class = "bookAuthor">Author</p>
@@ -44,6 +42,21 @@
             </div>
         </div>
 
+    </div>
+    <div class = "form-popup" id = "hiddenform">
+
+        <div class="popUpTitle">Enter the details of the book you wish to add using the below:</div>
+            <div class="formInputContainer">
+                <div class="cancelDiv" id="cancelDiv"><button class="cancelButton">X</button></div>
+                <label class = "label" id="titleLabel">Title:</label>
+                <input class = "input" id="titleInput" type="text">
+                <label class = "label" id="authoutLabel">Author:</label> 
+                <input class = "input" id="authorInput" type="text">
+                <label class = "label" id="pagesLabel"># of Pages:</label>
+                <input class = "input" id="pagesInput" type="text">
+                <label class = "label" id="statusLabel">Read Status:</label>
+                <div class="submitButton"><button id="submitButton" onclick="addBookToLibrary()">Submit</button></div>
+        </div>
     </div>
 
     <script src="javascript.js"></script>
