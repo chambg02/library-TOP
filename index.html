@@ -47,7 +47,7 @@
 
         <div class="popUpTitle">Enter the details of the book you wish to add using the below:</div>
             <div class="formInputContainer">
-                <div class="cancelDiv" id="cancelDiv"><button class="cancelButton">X</button></div>
+                <div class="cancelDiv" id="cancelDiv"><button class="cancelButton" onclick="removePopup()">X</button></div>
                 <label class = "label" id="titleLabel">Title:</label>
                 <input class = "input" id="titleInput" type="text">
                 <label class = "label" id="authoutLabel">Author:</label> 
@@ -55,6 +55,7 @@
                 <label class = "label" id="pagesLabel"># of Pages:</label>
                 <input class = "input" id="pagesInput" type="text">
                 <label class = "label" id="statusLabel">Read Status:</label>
+                <input class = "input" id="statusInput" type="radio">
                 <div class="submitButton"><button id="submitButton" onclick="addBookToLibrary()">Submit</button></div>
         </div>
     </div>
