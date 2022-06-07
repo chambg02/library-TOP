@@ -10,7 +10,8 @@ function addBookToLibrary() {
     let newBook = {
         title: document.getElementById('titleInput').value,
         author: document.getElementById('authorInput').value,
-        pages: document.getElementById('pagesInput').value
+        pages: document.getElementById('pagesInput').value,
+        status: document.getElementById('statusInput').checked
     }
     myLibrary.push(newBook);
     
@@ -29,14 +30,29 @@ function addBookToLibrary() {
     newTitle.className = "bookTitle"; newTitle.innerText = `${newBook.title}`;
     newAuthor.className = "bookAuthor"; newAuthor.innerText = `${newBook.author}`;
     newPages.className = "numberPages"; newPages.innerText = `${newBook.pages}`;
-    newStatus.className = "readStatus"; newStatus.innerText = "Not read yet";
+    newStatus.className = "readStatus"; 
+    if (newBook.status == false) {
+        newStatus.innerText = "Not Read Yet";
+    } else {
+        newStatus.innerText = "Read";
+    }
 
-    document.getElementById('hiddenform').style.display = "none";
-    document.getElementById('bodyContainer').style.opacity = "100%";
+    removePopup();
 
+    console.log(document.getElementById("statusInput").value);
 }
+
 
 function addBookButton() {
     document.getElementById('hiddenform').style.display = "inline-block";
     document.getElementById('bodyContainer').style.opacity = "10%";
+}
+
+function removePopup() {
+    document.getElementById('hiddenform').style.display = "none";
+    document.getElementById('bodyContainer').style.opacity = "100%";
+    document.getElementById('titleInput').value = "";
+    document.getElementById('authorInput').value = "";
+    document.getElementById('pagesInput').value = "";
+    document.getElementById('statusInput').checked = false;
 }
