@@ -1,20 +1,53 @@
 let myLibrary = [];
+
 const bookDisplay = document.getElementById("bookdisplay");
 
-function Book() {
-    // the constructor...
+function Book(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+
+    //below lines are a test
+    this.element = document.createElement("div");
+
+    document.body.appendChild(this.element);
+    this.element.innerText = "test";
+    this.element.addEventListener("click", this, false);
+
 }
+
+//below function is a test
+Book.prototype.handleEvent = function(e) {
+    switch (e.type) {
+        case "click": this.click(e);
+    }
+}
+
+//below function is a test
+Book.prototype.click = function(e) {
+    this.element.style.color = "#F00";
+    console.log(myLibrary[this])
+}
+
+
 
 function addBookToLibrary() {
 
-    let newBook = {
-        title: document.getElementById('titleInput').value,
-        author: document.getElementById('authorInput').value,
-        pages: document.getElementById('pagesInput').value,
-        status: document.getElementById('statusInput').checked
-    }
+    let title = document.getElementById('titleInput').value;
+    let author = document.getElementById('authorInput').value;
+    let pages = document.getElementById('pagesInput').value;
+    let status = document.getElementById('statusInput').checked;
+
+    let newBook = new Book(title, author, pages, status)
+
     myLibrary.push(newBook);
     
+    //createCard(newBook);
+    
+}
+
+function createCard(newBook) {
     let newCard = document.createElement("div");
     let newTitle = document.createElement("p");
     let newAuthor = document.createElement("p");
@@ -22,6 +55,7 @@ function addBookToLibrary() {
     let newStatus = document.createElement("p");
     bookDisplay.appendChild(newCard);
     newCard.className = "card";
+    newCard.id = `card`;
     newCard.appendChild(newTitle);
     newCard.appendChild(newAuthor);
     newCard.appendChild(newPages);
@@ -56,3 +90,16 @@ function removePopup() {
     document.getElementById('pagesInput').value = "";
     document.getElementById('statusInput').checked = false;
 }
+
+function hoverSelect() {
+    console.log(myLibrary.length);
+}
+
+function initiateHover() {
+    const select = document.querySelectorAll(".card");
+    for (let i = 0; i < select.length; i++) {
+        select[i].addEventListener('mouseenter', function() {
+            console.log(select[i]);
+        })
+        }
+    }
