@@ -8,15 +8,18 @@ function Book(title, author, pages, status) {
     this.pages = pages;
     this.status = status;
 
-    //below lines are a test
+    /*below lines are a test
     this.element = document.createElement("div");
 
     document.body.appendChild(this.element);
     this.element.innerText = "test";
     this.element.addEventListener("click", this, false);
-
+    */
 }
 
+
+
+/*
 //below function is a test
 Book.prototype.handleEvent = function(e) {
     switch (e.type) {
@@ -29,6 +32,7 @@ Book.prototype.click = function(e) {
     this.element.style.color = "#F00";
     console.log(myLibrary[this])
 }
+*/
 
 
 
@@ -43,7 +47,7 @@ function addBookToLibrary() {
 
     myLibrary.push(newBook);
     
-    //createCard(newBook);
+    createCard(newBook);
     
 }
 
@@ -53,13 +57,16 @@ function createCard(newBook) {
     let newAuthor = document.createElement("p");
     let newPages = document.createElement("p");
     let newStatus = document.createElement("p");
+    let newButton = document.createElement("button");
+
     bookDisplay.appendChild(newCard);
     newCard.className = "card";
-    newCard.id = `card`;
+    newCard.id = "card" + `${myLibrary.length}`;
     newCard.appendChild(newTitle);
     newCard.appendChild(newAuthor);
     newCard.appendChild(newPages);
     newCard.appendChild(newStatus);
+    newCard.appendChild(newButton);
 
     newTitle.className = "bookTitle"; newTitle.innerText = `${newBook.title}`;
     newAuthor.className = "bookAuthor"; newAuthor.innerText = `${newBook.author}`;
@@ -70,12 +77,19 @@ function createCard(newBook) {
     } else {
         newStatus.innerText = "Read";
     }
+    newButton.className = "removeButton"; newButton.id = "button" + `${myLibrary.length}`; 
+    newButton.innerText = "REMOVE"; newButton.setAttribute("onclick", "removeCard()")
 
     removePopup();
 
     console.log(document.getElementById("statusInput").value);
 }
 
+function removeCard() {
+    
+    console.log("TEST")
+
+}
 
 function addBookButton() {
     document.getElementById('hiddenform').style.display = "inline-block";
