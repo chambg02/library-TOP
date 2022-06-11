@@ -7,33 +7,7 @@ function Book(title, author, pages, status) {
     this.author = author;
     this.pages = pages;
     this.status = status;
-
-    /*below lines are a test
-    this.element = document.createElement("div");
-
-    document.body.appendChild(this.element);
-    this.element.innerText = "test";
-    this.element.addEventListener("click", this, false);
-    */
 }
-
-
-
-/*
-//below function is a test
-Book.prototype.handleEvent = function(e) {
-    switch (e.type) {
-        case "click": this.click(e);
-    }
-}
-
-//below function is a test
-Book.prototype.click = function(e) {
-    this.element.style.color = "#F00";
-    console.log(myLibrary[this])
-}
-*/
-
 
 
 function addBookToLibrary() {
@@ -78,17 +52,18 @@ function createCard(newBook) {
         newStatus.innerText = "Read";
     }
     newButton.className = "removeButton"; newButton.id = "button" + `${myLibrary.length}`; 
-    newButton.innerText = "REMOVE"; newButton.setAttribute("onclick", "removeCard()")
+    newButton.innerText = "REMOVE"; newButton.setAttribute("onclick", "removeBook(event)")
 
     removePopup();
 
     console.log(document.getElementById("statusInput").value);
 }
 
-function removeCard() {
-    
-    console.log("TEST")
-
+function removeBook(e) {
+    let element = e.target.parentNode;
+    let lookup = element.children[0].innerText;
+    myLibrary.splice(myLibrary.findIndex(x => x = lookup))
+    element.remove();
 }
 
 function addBookButton() {
