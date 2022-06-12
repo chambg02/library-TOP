@@ -79,16 +79,3 @@ function removePopup() {
     document.getElementById('pagesInput').value = "";
     document.getElementById('statusInput').checked = false;
 }
-
-function hoverSelect() {
-    console.log(myLibrary.length);
-}
-
-function initiateHover() {
-    const select = document.querySelectorAll(".card");
-    for (let i = 0; i < select.length; i++) {
-        select[i].addEventListener('mouseenter', function() {
-            console.log(select[i]);
-        })
-        }
-    }
