@@ -12,15 +12,13 @@
 
         <div class="sidebar">
             <div class="logoContainer">MY LIBRARY</div>
-            <div class="menuContainer">
-                <p>ALL BOOKS</p>
-                <p>UNREAD</p>
-                <p>READ</p>
-            </div>
-            <div class="logContainer">Library Log
-                <p>Total = 0</p>
-                <p>Unread = 0</p>
-                <p>Read = 0</p>
+            <div class="logContainer">
+                <p>Total</p>
+                <p id = "totalBooks"></p>
+                <p>Unread</p>
+                <p id = "totalUnread"></p>
+                <p>Read</p>
+                <p id = "totalRead"></p>
             </div>
         </div>
 
@@ -33,14 +31,7 @@
 
         </div>
 
-        <div class="bookdisplay" id="bookdisplay">
-            <div class = "card">
-                <p class = "bookTitle">Book Title</p>
-                <p class = "bookAuthor">Author</p>
-                <p class = "numberPages"># of Pages</p>
-                <p class = "readStatus">Read or Not Read</p>
-            </div>
-        </div>
+        <div class="bookdisplay" id="bookdisplay"></div>
 
     </div>
     <div class = "form-popup" id = "hiddenform">
