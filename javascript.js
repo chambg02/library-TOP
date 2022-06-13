@@ -9,20 +9,14 @@ function Book(title, author, pages, status) {
     this.status = status;
 }
 
-
 function addBookToLibrary() {
-
     let title = document.getElementById('titleInput').value;
     let author = document.getElementById('authorInput').value;
     let pages = document.getElementById('pagesInput').value;
     let status = document.getElementById('statusInput').checked;
-
     let newBook = new Book(title, author, pages, status)
-
     myLibrary.push(newBook);
-    
     createCard(newBook);
-    
 }
 
 function createCard(newBook) {
