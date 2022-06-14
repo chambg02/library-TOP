@@ -73,3 +73,19 @@ function removePopup() {
     document.getElementById('pagesInput').value = "";
     document.getElementById('statusInput').checked = false;
 }
+
+function libraryLog() {
+    document.getElementById('totalBooks').innerText = myLibrary.length;
+
+    let readCounter = 0;
+    for (let i = 0;i < myLibrary.length; i++) {
+        if (myLibrary[i].status === true) readCounter++;
+    }
+    document.getElementById('totalRead').innerText = readCounter;
+
+    let unreadCounter = 0;
+    for (let j = 0;j < myLibrary.length; j++) {
+        if (myLibrary[j].status === false) unreadCounter++;
+    }
+    document.getElementById('totalUnread').innerText = unreadCounter;
+}
