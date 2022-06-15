@@ -24,9 +24,8 @@ function createCard(newBook) {
     let newTitle = document.createElement("p");
     let newAuthor = document.createElement("p");
     let newPages = document.createElement("p");
-    let newStatus = document.createElement("p");
+    let newStatus = document.createElement("button");
     let newButton = document.createElement("button");
-
     bookDisplay.appendChild(newCard);
     newCard.className = "card";
     newCard.id = "card" + `${myLibrary.length}`;
@@ -35,7 +34,6 @@ function createCard(newBook) {
     newCard.appendChild(newPages);
     newCard.appendChild(newStatus);
     newCard.appendChild(newButton);
-
     newTitle.className = "bookTitle"; newTitle.innerText = `${newBook.title}`;
     newAuthor.className = "bookAuthor"; newAuthor.innerText = `${newBook.author}`;
     newPages.className = "numberPages"; newPages.innerText = `${newBook.pages}`;
@@ -45,12 +43,12 @@ function createCard(newBook) {
     } else {
         newStatus.innerText = "Read";
     }
-    newButton.className = "removeButton"; newButton.id = "button" + `${myLibrary.length}`; 
-    newButton.innerText = "REMOVE"; newButton.setAttribute("onclick", "removeBook(event)")
-
+    newStatus.setAttribute("onclick", "toggleStatus(event)")
+    newButton.className = "removeButton"; 
+    newButton.innerText = "REMOVE"; 
+    newButton.setAttribute("onclick", "removeBook(event)")
     removePopup();
-
-    console.log(document.getElementById("statusInput").value);
+    libraryLog();
 }
 
 function removeBook(e) {
@@ -58,6 +56,7 @@ function removeBook(e) {
     let lookup = element.children[0].innerText;
     myLibrary.splice(myLibrary.findIndex(x => x = lookup))
     element.remove();
+    libraryLog();
 }
 
 function addBookButton() {
@@ -76,16 +75,25 @@ function removePopup() {
 
 function libraryLog() {
     document.getElementById('totalBooks').innerText = myLibrary.length;
-
     let readCounter = 0;
     for (let i = 0;i < myLibrary.length; i++) {
         if (myLibrary[i].status === true) readCounter++;
     }
     document.getElementById('totalRead').innerText = readCounter;
-
     let unreadCounter = 0;
     for (let j = 0;j < myLibrary.length; j++) {
         if (myLibrary[j].status === false) unreadCounter++;
     }
     document.getElementById('totalUnread').innerText = unreadCounter;
+}
+
+function toggleStatus(e) {
+    let element = e.target.parentNode;
+    let lookup = element.children[3].innerText;
+    if (lookup === "Read") {
+        lookup = "Not Read Yet";
+    }
+
+
+    console.log(lookup);
 }
