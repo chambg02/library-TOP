@@ -13,20 +13,26 @@
         <div class="sidebar">
             <div class="logoContainer"><img id = "logoimage" src = "img/librarylogo.png"> </div>
             <div class="logContainer">
-                <p>Total</p>
-                <p id = "totalBooks"></p>
-                <p>Unread</p>
-                <p id = "totalUnread"></p>
-                <p>Read</p>
-                <p id = "totalRead"></p>
+                <div class="totalContainer">
+                    <p>Total</p>
+                    <p id = "totalBooks">0</p>
+                </div>
+                <div class="unreadContainer">
+                    <p>Unread</p>
+                    <p id = "totalUnread">0</p>
+                </div>
+                <div class="readContainer">
+                    <p>Read</p>
+                    <p id = "totalRead">0</p>
+                </div>
             </div>
         </div>
 
         <div class="header">
-            <div class="welcomeContainer">Add a book to your collection</div>
+            
             <div class="addNewContainer">
 
-                <button id="addButton" onclick="addBookButton()">Book</button>
+                <button id="addButton" onclick="addBookButton()">ADD A BOOK TO YOUR COLLECTION</button>
             </div>
 
         </div>
