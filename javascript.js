@@ -52,10 +52,10 @@ function createCard(newBook) {
 }
 
 function removeBook(e) {
-    let element = e.target.parentNode;
-    let lookup = element.children[0].innerText;
-    myLibrary.splice(myLibrary.findIndex(x => x = lookup))
-    element.remove();
+    let elementTitle = e.target.parentNode;
+    let lookupTitle = elementTitle.children[0].innerText;
+    myLibrary.splice(myLibrary.findIndex(x => x = lookupTitle))
+    elementTitle.remove();
     libraryLog();
 }
 
@@ -88,12 +88,18 @@ function libraryLog() {
 }
 
 function toggleStatus(e) {
-    let element = e.target.parentNode;
-    let lookup = element.children[3].innerText;
-    if (lookup === "Read") {
-        lookup = "Not Read Yet";
-    }
+    let elementStatus = e.target.parentNode;
+    let lookupTitle = elementStatus.children[0].innerText;
+    let lookupStatus = elementStatus.children[3].innerText;
+
+    //console.log(myLibrary.findIndex(x => x = lookupStatus));
 
 
-    console.log(lookup);
+
+    //if (lookup === "Read") {
+    //    lookup = "Not Read Yet";
+    //}
+
+    console.log(lookupTitle);
+    console.log(lookupStatus);
 }
