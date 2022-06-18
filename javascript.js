@@ -90,16 +90,25 @@ function libraryLog() {
 function toggleStatus(e) {
     let elementStatus = e.target.parentNode;
     let lookupTitle = elementStatus.children[0].innerText;
-    let lookupStatus = elementStatus.children[3].innerText;
-
-    //console.log(myLibrary.findIndex(x => x = lookupStatus));
-
-
-
-    //if (lookup === "Read") {
-    //    lookup = "Not Read Yet";
-    //}
-
-    console.log(lookupTitle);
+    let lookupStatus = elementStatus.children[3];
     console.log(lookupStatus);
+    //change status in array
+    let index = searchLibraryArray(lookupTitle, myLibrary);
+    if (index.status === false) {
+        index.status = true;
+        lookupStatus.innerText = "Read";
+    } else {
+        index.status = false;
+        lookupStatus.innerText = "Not Read Yet";
+    }
+    //update counter
+    libraryLog();
+}
+
+function searchLibraryArray(titleKey, myArray){
+    for (let k=0; k < myArray.length; k++) {
+        if (myArray[k].title === titleKey) {
+            return myArray[k];
+        }
+    }
 }
