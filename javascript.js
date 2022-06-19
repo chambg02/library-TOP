@@ -40,12 +40,14 @@ function createCard(newBook) {
     newStatus.className = "readStatus"; 
     if (newBook.status == false) {
         newStatus.innerText = "Not Read Yet";
+        newCard.style = "border-left: solid 15px #FF8D33"
     } else {
         newStatus.innerText = "Read";
+        newCard.style = "border-left: solid 15px #DAF7A6"
     }
     newStatus.setAttribute("onclick", "toggleStatus(event)")
     newButton.className = "removeButton"; 
-    newButton.innerText = "REMOVE"; 
+    newButton.innerText = "Remove"; 
     newButton.setAttribute("onclick", "removeBook(event)")
     removePopup();
     libraryLog();
@@ -97,9 +99,11 @@ function toggleStatus(e) {
     if (index.status === false) {
         index.status = true;
         lookupStatus.innerText = "Read";
+        elementStatus.style = "border-left: solid 15px #DAF7A6";
     } else {
         index.status = false;
         lookupStatus.innerText = "Not Read Yet";
+        elementStatus.style = "border-left: solid 15px #FF8D33";
     }
     //update counter
     libraryLog();
