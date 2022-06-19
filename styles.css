@@ -77,13 +77,9 @@
     border-radius: 10px;
     padding: 20px;
     font-size: 1rem;
-    margin-left: 20px;
-    margin-right: 20px;
 }
-.submitButton {
-    height: 30px;
-    
-}
+
+
 
 /* Book Display */
 .bookdisplay {
@@ -104,6 +100,7 @@
     display: flex;
     flex-direction: column;
     padding: 15px;
+    color: #e8e8e8;
 }
 
 .readStatus, .removeButton {
@@ -123,20 +120,20 @@
     display: none;
     height: 50vh;
     width: 50vw;
-    background-color: grey;
+    background-color: #8c8c8c;
     position: fixed;
     bottom: 25vh;
     right: 25vw;
     border-radius: 20px;
-
+    color: #181818;
 }
 
 .formInputContainer {
     display: grid;
     grid-template-columns: 1fr 4fr;
     padding: 20px;
-    width: 80%;
-    justify-self: center;
+    
+    justify-items: center;
 }
 
 .popUpTitle {
@@ -154,12 +151,21 @@
     grid-column: 1 / 2;
     text-align: end;
     margin: 20px;
-
+    width: 120px;
 }
 
 .input {
     grid-column: 2 / 3;
+    height: 20px;
     width: 80%;
     margin: 20px;
+}
 
+.submitButton {
+    grid-column: 1 / 3;
+}
+
+#submitButton {
+    height: 40px;
+    width: 150px;
 }
